@@ -9,8 +9,7 @@
       "subdirs": true
     },
     {
-      "dir": "types",
-      "subdirs": true
+      "dir": "types"
     },
     {
       "dir": "bs-emotion",
