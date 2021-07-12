@@ -31,6 +31,5 @@
   "ppx-flags": [
     "decco/ppx",
     "@davesnx/styled-ppx/styled-ppx"
-  ],
-  "refmt": 3
+  ]
 }
