@@ -13,13 +13,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ahrefs/bs-emotion": "^1.0.1",
     "@davesnx/styled-ppx": "^0.15.0",
+    "emotion": "9.2.12",
+    "@minima.app/re-css": "idkjs/re-css",
     "bs-fetch": "^0.5.2",
     "decco": "^1.1.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "reason-cli": "^3.3.3-macos-1",
     "reason-react": ">=0.7.0",
     "restorative": "^0.4.0-beta.1"
   },
