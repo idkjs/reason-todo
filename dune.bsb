@@ -1,0 +1,615 @@
+;;;;{BSB GENERATED: NO EDIT
+(subdir ./node_modules/@minima.app/re-css/src
+(rule
+(targets  Css.ast)
+ (deps (:inputs  Css.re) )
+(action
+ (run bsc  -w a -open Belt -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Css.iast)
+ (deps (:inputs  Css.rei) )
+(action
+ (run bsc  -w a -open Belt -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Css.cmi Css.cmti)
+ (deps (:inputs  Css.iast)  (:ast_deps .././src/Css.ast .././src/Css.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/@minima.app/re-css -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I .    -w a -o Css.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Css.cmj Css.cmt Css.bs.js)
+ (mode (promote (until-clean) (only Css.bs.js)))(deps (:inputs  Css.ast)  Css.cmi (:ast_deps .././src/Css.ast .././src/Css.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/@minima.app/re-css -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I .    -w a -bs-package-name @minima.app/re-css -bs-package-output commonjs:./src:.bs.js -o Css.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Css.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir ./node_modules/@minima.app/re-css(data_only_dirs .melange.eobjs))
+(subdir ./node_modules/@minima.app/re-css/.melange.eobjs)
+
+(subdir ./node_modules/bs-fetch/src
+(rule
+(targets  Fetch.ast)
+ (deps (:inputs  Fetch.ml) )
+(action
+ (run bsc  -w a -bs-no-version-header -bs-super-errors -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Fetch.iast)
+ (deps (:inputs  Fetch.mli) )
+(action
+ (run bsc  -w a -bs-no-version-header -bs-super-errors -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Fetch.cmi Fetch.cmti)
+ (deps (:inputs  Fetch.iast)  (:ast_deps .././src/Fetch.ast .././src/Fetch.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/bs-fetch -cwd ./src %{ast_deps}) (run bsc -I .    -w a -o Fetch.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Fetch.cmj Fetch.cmt Fetch.bs.js)
+ (mode (promote (until-clean) (only Fetch.bs.js)))(deps (:inputs  Fetch.ast)  Fetch.cmi (:ast_deps .././src/Fetch.ast .././src/Fetch.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/bs-fetch -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -I .    -w a -bs-package-name bs-fetch -bs-package-output commonjs:./src:.bs.js -o Fetch.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  bs_fetch.ast)
+ (deps (:inputs  bs_fetch.ml) )
+(action
+ (run bsc  -w a -bs-no-version-header -bs-super-errors -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  bs_fetch.cmj bs_fetch.cmi bs_fetch.cmt bs_fetch.bs.js)
+ (mode (promote (until-clean) (only bs_fetch.bs.js)))(deps (:inputs  bs_fetch.ast)  (:ast_deps .././src/bs_fetch.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/bs-fetch -cwd ./src %{ast_deps}) (run bsc -I .    -w a -bs-package-name bs-fetch -bs-package-output commonjs:./src:.bs.js -o bs_fetch.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  bs_fetch.bs.js Fetch.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir ./node_modules/bs-fetch(data_only_dirs .melange.eobjs))
+(subdir ./node_modules/bs-fetch/.melange.eobjs)
+
+(subdir ./node_modules/decco/src
+(rule
+(targets  Decco.ast)
+ (deps (:inputs  Decco.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/./ppx -bs-super-errors -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Decco.cmj Decco.cmi Decco.cmt Decco.bs.js)
+ (mode (promote (until-clean) (only Decco.bs.js)))(deps (:inputs  Decco.ast)  (:ast_deps .././src/Decco.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/decco -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I .    -w a -bs-package-name decco -bs-package-output commonjs:./src:.bs.js -o Decco.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Decco_Codecs.ast)
+ (deps (:inputs  Decco_Codecs.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/./ppx -bs-super-errors -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Decco_Codecs.cmj Decco_Codecs.cmi Decco_Codecs.cmt Decco_Codecs.bs.js)
+ (mode (promote (until-clean) (only Decco_Codecs.bs.js)))(deps (:inputs  Decco_Codecs.ast)  (:ast_deps .././src/Decco_Codecs.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/decco -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I .    -w a -bs-package-name decco -bs-package-output commonjs:./src:.bs.js -o Decco_Codecs.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Decco_Codecs.bs.js Decco.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir ./node_modules/decco(data_only_dirs .melange.eobjs))
+(subdir ./node_modules/decco/.melange.eobjs)
+
+(subdir ./node_modules/reason-react/src
+(dirs :standard legacy)
+(rule
+(targets  React.ast)
+ (deps (:inputs  React.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  React.cmj React.cmi React.cmt React.bs.js)
+ (mode (promote (until-clean) (only React.bs.js)))(deps (:inputs  React.ast)  (:ast_deps .././src/React.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o React.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOM.ast)
+ (deps (:inputs  ReactDOM.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOM.cmj ReactDOM.cmi ReactDOM.cmt ReactDOM.bs.js)
+ (mode (promote (until-clean) (only ReactDOM.bs.js)))(deps (:inputs  ReactDOM.ast)  (:ast_deps .././src/ReactDOM.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReactDOM.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEvent.ast)
+ (deps (:inputs  ReactEvent.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEvent.iast)
+ (deps (:inputs  ReactEvent.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEvent.cmi ReactEvent.cmti)
+ (deps (:inputs  ReactEvent.iast)  (:ast_deps .././src/ReactEvent.ast .././src/ReactEvent.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -o ReactEvent.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEvent.cmj ReactEvent.cmt ReactEvent.bs.js)
+ (mode (promote (until-clean) (only ReactEvent.bs.js)))(deps (:inputs  ReactEvent.ast)  ReactEvent.cmi (:ast_deps .././src/ReactEvent.ast .././src/ReactEvent.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReactEvent.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMStyle.ast)
+ (deps (:inputs  ReactDOMStyle.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMStyle.cmj ReactDOMStyle.cmi ReactDOMStyle.cmt ReactDOMStyle.bs.js)
+ (mode (promote (until-clean) (only ReactDOMStyle.bs.js)))(deps (:inputs  ReactDOMStyle.ast)  (:ast_deps .././src/ReactDOMStyle.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReactDOMStyle.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMServer.ast)
+ (deps (:inputs  ReactDOMServer.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMServer.cmj ReactDOMServer.cmi ReactDOMServer.cmt ReactDOMServer.bs.js)
+ (mode (promote (until-clean) (only ReactDOMServer.bs.js)))(deps (:inputs  ReactDOMServer.ast)  (:ast_deps .././src/ReactDOMServer.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReactDOMServer.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactTestUtils.ast)
+ (deps (:inputs  ReactTestUtils.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactTestUtils.iast)
+ (deps (:inputs  ReactTestUtils.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactTestUtils.cmi ReactTestUtils.cmti)
+ (deps (:inputs  ReactTestUtils.iast)  (:ast_deps .././src/ReactTestUtils.ast .././src/ReactTestUtils.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -o ReactTestUtils.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactTestUtils.cmj ReactTestUtils.cmt ReactTestUtils.bs.js)
+ (mode (promote (until-clean) (only ReactTestUtils.bs.js)))(deps (:inputs  ReactTestUtils.ast)  ReactTestUtils.cmi (:ast_deps .././src/ReactTestUtils.ast .././src/ReactTestUtils.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReactTestUtils.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactRouter.ast)
+ (deps (:inputs  ReasonReactRouter.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactRouter.iast)
+ (deps (:inputs  ReasonReactRouter.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactRouter.cmi ReasonReactRouter.cmti)
+ (deps (:inputs  ReasonReactRouter.iast)  (:ast_deps .././src/ReasonReactRouter.ast .././src/ReasonReactRouter.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -o ReasonReactRouter.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactRouter.cmj ReasonReactRouter.cmt ReasonReactRouter.bs.js)
+ (mode (promote (until-clean) (only ReasonReactRouter.bs.js)))(deps (:inputs  ReasonReactRouter.ast)  ReasonReactRouter.cmi (:ast_deps .././src/ReasonReactRouter.ast .././src/ReasonReactRouter.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReasonReactRouter.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactErrorBoundary.ast)
+ (deps (:inputs  ReasonReactErrorBoundary.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactErrorBoundary.iast)
+ (deps (:inputs  ReasonReactErrorBoundary.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactErrorBoundary.cmi ReasonReactErrorBoundary.cmti)
+ (deps (:inputs  ReasonReactErrorBoundary.iast)  (:ast_deps .././src/ReasonReactErrorBoundary.ast .././src/ReasonReactErrorBoundary.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./legacy -I .    -w a -o ReasonReactErrorBoundary.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactErrorBoundary.cmj ReasonReactErrorBoundary.cmt ReasonReactErrorBoundary.bs.js)
+ (mode (promote (until-clean) (only ReasonReactErrorBoundary.bs.js)))(deps (:inputs  ReasonReactErrorBoundary.ast)  ReasonReactErrorBoundary.cmi (:ast_deps .././src/ReasonReactErrorBoundary.ast .././src/ReasonReactErrorBoundary.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ./legacy -I .    -w a -bs-package-name reason-react -bs-package-output commonjs:./src:.bs.js -o ReasonReactErrorBoundary.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  ReasonReactErrorBoundary.bs.js ReasonReactRouter.bs.js ReactTestUtils.bs.js ReactDOMServer.bs.js ReactDOMStyle.bs.js ReactEvent.bs.js ReactDOM.bs.js React.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./node_modules/reason-react/src/legacy
+(rule
+(targets  ReactDOMRe.ast)
+ (deps (:inputs  ReactDOMRe.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMRe.cmj ReactDOMRe.cmi ReactDOMRe.cmt ReactDOMRe.bs.js)
+ (mode (promote (until-clean) (only ReactDOMRe.bs.js)))(deps (:inputs  ReactDOMRe.ast)  (:ast_deps ../.././src/legacy/ReactDOMRe.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-re-out -I . -I ..    -w a -bs-package-name reason-react -bs-package-output commonjs:./src/legacy:.bs.js -o ReactDOMRe.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReact.ast)
+ (deps (:inputs  ReasonReact.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReact.iast)
+ (deps (:inputs  ReasonReact.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReact.cmi ReasonReact.cmti)
+ (deps (:inputs  ReasonReact.iast)  (:ast_deps ../.././src/legacy/ReasonReact.ast ../.././src/legacy/ReasonReact.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-re-out -I . -I ..    -w a -o ReasonReact.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReact.cmj ReasonReact.cmt ReasonReact.bs.js)
+ (mode (promote (until-clean) (only ReasonReact.bs.js)))(deps (:inputs  ReasonReact.ast)  ReasonReact.cmi (:ast_deps ../.././src/legacy/ReasonReact.ast ../.././src/legacy/ReasonReact.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I . -I ..    -w a -bs-package-name reason-react -bs-package-output commonjs:./src/legacy:.bs.js -o ReasonReact.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEventRe.ast)
+ (deps (:inputs  ReactEventRe.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEventRe.iast)
+ (deps (:inputs  ReactEventRe.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEventRe.cmi ReactEventRe.cmti)
+ (deps (:inputs  ReactEventRe.iast)  (:ast_deps ../.././src/legacy/ReactEventRe.ast ../.././src/legacy/ReactEventRe.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-re-out -I . -I ..    -w a -o ReactEventRe.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactEventRe.cmj ReactEventRe.cmt ReactEventRe.bs.js)
+ (mode (promote (until-clean) (only ReactEventRe.bs.js)))(deps (:inputs  ReactEventRe.ast)  ReactEventRe.cmi (:ast_deps ../.././src/legacy/ReactEventRe.ast ../.././src/legacy/ReactEventRe.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I . -I ..    -w a -bs-package-name reason-react -bs-package-output commonjs:./src/legacy:.bs.js -o ReactEventRe.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMServerRe.ast)
+ (deps (:inputs  ReactDOMServerRe.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReactDOMServerRe.cmj ReactDOMServerRe.cmi ReactDOMServerRe.cmt ReactDOMServerRe.bs.js)
+ (mode (promote (until-clean) (only ReactDOMServerRe.bs.js)))(deps (:inputs  ReactDOMServerRe.ast)  (:ast_deps ../.././src/legacy/ReactDOMServerRe.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-re-out -I . -I ..    -w a -bs-package-name reason-react -bs-package-output commonjs:./src/legacy:.bs.js -o ReactDOMServerRe.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactCompat.ast)
+ (deps (:inputs  ReasonReactCompat.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactCompat.iast)
+ (deps (:inputs  ReasonReactCompat.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactCompat.cmi ReasonReactCompat.cmti)
+ (deps (:inputs  ReasonReactCompat.iast)  (:ast_deps ../.././src/legacy/ReasonReactCompat.ast ../.././src/legacy/ReasonReactCompat.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-re-out -I . -I ..    -w a -o ReasonReactCompat.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactCompat.cmj ReasonReactCompat.cmt ReasonReactCompat.bs.js)
+ (mode (promote (until-clean) (only ReasonReactCompat.bs.js)))(deps (:inputs  ReasonReactCompat.ast)  ReasonReactCompat.cmi (:ast_deps ../.././src/legacy/ReasonReactCompat.ast ../.././src/legacy/ReasonReactCompat.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I . -I ..    -w a -bs-package-name reason-react -bs-package-output commonjs:./src/legacy:.bs.js -o ReasonReactCompat.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactOptimizedCreateClass.ast)
+ (deps (:inputs  ReasonReactOptimizedCreateClass.re) )
+(action
+ (run bsc  -w a -bs-jsx 3 -bs-no-version-header -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  ReasonReactOptimizedCreateClass.cmj ReasonReactOptimizedCreateClass.cmi ReasonReactOptimizedCreateClass.cmt ReasonReactOptimizedCreateClass.bs.js)
+ (mode (promote (until-clean) (only ReasonReactOptimizedCreateClass.bs.js)))(deps (:inputs  ReasonReactOptimizedCreateClass.ast)  (:ast_deps ../.././src/legacy/ReasonReactOptimizedCreateClass.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/reason-react -cwd ./src/legacy %{ast_deps}) (run bsc -bs-re-out -I . -I ..    -w a -bs-package-name reason-react -bs-package-output commonjs:./src/legacy:.bs.js -o ReasonReactOptimizedCreateClass.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  ReasonReactOptimizedCreateClass.bs.js ReasonReactCompat.bs.js ReactDOMServerRe.bs.js ReactEventRe.bs.js ReasonReact.bs.js ReactDOMRe.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir ./node_modules/reason-react(data_only_dirs .melange.eobjs))
+(subdir ./node_modules/reason-react/.melange.eobjs)
+
+(subdir ./node_modules/restorative/src
+(rule
+(targets  Restorative.ast)
+ (deps (:inputs  Restorative.re) )
+(action
+ (run bsc  -w a -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative.cmj Restorative.cmi Restorative.cmt Restorative.bs.js)
+ (mode (promote (until-clean) (only Restorative.bs.js)))(deps (:inputs  Restorative.ast)  (:ast_deps .././src/Restorative.ast ) ../bsconfig.json(alias ../../reason-react/src/bsb_world)(alias ../../reason-react/src/legacy/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/restorative -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I . -I ../../reason-react/src -I ../../reason-react/src/legacy   -w a -bs-package-name restorative -bs-package-output commonjs:./src:.bs.js -o Restorative.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_Core.ast)
+ (deps (:inputs  Restorative_Core.re) )
+(action
+ (run bsc  -w a -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_Core.iast)
+ (deps (:inputs  Restorative_Core.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_Core.cmi Restorative_Core.cmti)
+ (deps (:inputs  Restorative_Core.iast)  (:ast_deps .././src/Restorative_Core.ast .././src/Restorative_Core.iast) ../bsconfig.json(alias ../../reason-react/src/bsb_world)(alias ../../reason-react/src/legacy/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/restorative -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I . -I ../../reason-react/src -I ../../reason-react/src/legacy   -w a -o Restorative_Core.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_Core.cmj Restorative_Core.cmt Restorative_Core.bs.js)
+ (mode (promote (until-clean) (only Restorative_Core.bs.js)))(deps (:inputs  Restorative_Core.ast)  Restorative_Core.cmi (:ast_deps .././src/Restorative_Core.ast .././src/Restorative_Core.iast) ../bsconfig.json(alias ../../reason-react/src/bsb_world)(alias ../../reason-react/src/legacy/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/restorative -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I . -I ../../reason-react/src -I ../../reason-react/src/legacy   -w a -bs-package-name restorative -bs-package-output commonjs:./src:.bs.js -o Restorative_Core.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_ReduxDevtool.ast)
+ (deps (:inputs  Restorative_ReduxDevtool.re) )
+(action
+ (run bsc  -w a -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_ReduxDevtool.iast)
+ (deps (:inputs  Restorative_ReduxDevtool.rei) )
+(action
+ (run bsc  -w a -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_ReduxDevtool.cmi Restorative_ReduxDevtool.cmti)
+ (deps (:inputs  Restorative_ReduxDevtool.iast)  (:ast_deps .././src/Restorative_ReduxDevtool.ast .././src/Restorative_ReduxDevtool.iast) ../bsconfig.json(alias ../../reason-react/src/bsb_world)(alias ../../reason-react/src/legacy/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/restorative -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I . -I ../../reason-react/src -I ../../reason-react/src/legacy   -w a -o Restorative_ReduxDevtool.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Restorative_ReduxDevtool.cmj Restorative_ReduxDevtool.cmt Restorative_ReduxDevtool.bs.js)
+ (mode (promote (until-clean) (only Restorative_ReduxDevtool.bs.js)))(deps (:inputs  Restorative_ReduxDevtool.ast)  Restorative_ReduxDevtool.cmi (:ast_deps .././src/Restorative_ReduxDevtool.ast .././src/Restorative_ReduxDevtool.iast) ../bsconfig.json(alias ../../reason-react/src/bsb_world)(alias ../../reason-react/src/legacy/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/reason-todo/node_modules/restorative -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I . -I ../../reason-react/src -I ../../reason-react/src/legacy   -w a -bs-package-name restorative -bs-package-output commonjs:./src:.bs.js -o Restorative_ReduxDevtool.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Restorative_ReduxDevtool.bs.js Restorative_Core.bs.js Restorative.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir ./node_modules/restorative(data_only_dirs .melange.eobjs))
+(subdir ./node_modules/restorative/.melange.eobjs)
+
+(subdir ./bs-emotion
+(rule
+(targets  Cx.ast)
+ (deps (:inputs  Cx.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Cx-FullstackReason.cmj Cx-FullstackReason.cmi Cx-FullstackReason.cmt Cx.bs.js)
+ (mode (promote (until-clean) (only Cx.bs.js)))(deps (:inputs  Cx.ast)  (:ast_deps .././bs-emotion/Cx.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./bs-emotion %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I ../frontend -I ../types -I . -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./bs-emotion:.bs.js -o Cx-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Emotion.ast)
+ (deps (:inputs  Emotion.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Emotion.iast)
+ (deps (:inputs  Emotion.rei) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Emotion-FullstackReason.cmi Emotion-FullstackReason.cmti)
+ (deps (:inputs  Emotion.iast)  (:ast_deps .././bs-emotion/Emotion.ast .././bs-emotion/Emotion.iast) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./bs-emotion %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I ../frontend -I ../types -I . -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -o Emotion-FullstackReason.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Emotion-FullstackReason.cmj Emotion-FullstackReason.cmt Emotion.bs.js)
+ (mode (promote (until-clean) (only Emotion.bs.js)))(deps (:inputs  Emotion.ast)  Emotion-FullstackReason.cmi (:ast_deps .././bs-emotion/Emotion.ast .././bs-emotion/Emotion.iast) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./bs-emotion %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-read-cmi -bs-re-out -I ../frontend -I ../types -I . -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./bs-emotion:.bs.js -o Emotion-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Emotion.bs.js Cx.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./types
+(rule
+(targets  Types.ast)
+ (deps (:inputs  Types.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Types-FullstackReason.cmj Types-FullstackReason.cmi Types-FullstackReason.cmt Types.bs.js)
+ (mode (promote (until-clean) (only Types.bs.js)))(deps (:inputs  Types.ast)  (:ast_deps .././types/Types.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./types %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I ../frontend -I . -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./types:.bs.js -o Types-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Types__TodoItem.ast)
+ (deps (:inputs  Types__TodoItem.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Types__TodoItem-FullstackReason.cmj Types__TodoItem-FullstackReason.cmi Types__TodoItem-FullstackReason.cmt Types__TodoItem.bs.js)
+ (mode (promote (until-clean) (only Types__TodoItem.bs.js)))(deps (:inputs  Types__TodoItem.ast)  (:ast_deps .././types/Types__TodoItem.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./types %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I ../frontend -I . -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./types:.bs.js -o Types__TodoItem-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Types__TodoItemCollection.ast)
+ (deps (:inputs  Types__TodoItemCollection.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Types__TodoItemCollection-FullstackReason.cmj Types__TodoItemCollection-FullstackReason.cmi Types__TodoItemCollection-FullstackReason.cmt Types__TodoItemCollection.bs.js)
+ (mode (promote (until-clean) (only Types__TodoItemCollection.bs.js)))(deps (:inputs  Types__TodoItemCollection.ast)  (:ast_deps .././types/Types__TodoItemCollection.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./types %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I ../frontend -I . -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./types:.bs.js -o Types__TodoItemCollection-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Types__TodoItemCollection.bs.js Types__TodoItem.bs.js Types.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./frontend
+(rule
+(targets  Api.ast)
+ (deps (:inputs  Api.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Api-FullstackReason.cmj Api-FullstackReason.cmi Api-FullstackReason.cmt Api.bs.js)
+ (mode (promote (until-clean) (only Api.bs.js)))(deps (:inputs  Api.ast)  (:ast_deps .././frontend/Api.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./frontend %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I . -I ../types -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./frontend:.bs.js -o Api-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  index.ast)
+ (deps (:inputs  index.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  index-FullstackReason.cmj index-FullstackReason.cmi index-FullstackReason.cmt index.bs.js)
+ (mode (promote (until-clean) (only index.bs.js)))(deps (:inputs  index.ast)  (:ast_deps .././frontend/index.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./frontend %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I . -I ../types -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./frontend:.bs.js -o index-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Effects.ast)
+ (deps (:inputs  Effects.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Effects-FullstackReason.cmj Effects-FullstackReason.cmi Effects-FullstackReason.cmt Effects.bs.js)
+ (mode (promote (until-clean) (only Effects.bs.js)))(deps (:inputs  Effects.ast)  (:ast_deps .././frontend/Effects.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./frontend %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I . -I ../types -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./frontend:.bs.js -o Effects-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  TodoList.ast)
+ (deps (:inputs  TodoList.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  TodoList-FullstackReason.cmj TodoList-FullstackReason.cmi TodoList-FullstackReason.cmt TodoList.bs.js)
+ (mode (promote (until-clean) (only TodoList.bs.js)))(deps (:inputs  TodoList.ast)  (:ast_deps .././frontend/TodoList.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./frontend %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I . -I ../types -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./frontend:.bs.js -o TodoList-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  TodoListItem.ast)
+ (deps (:inputs  TodoListItem.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  TodoListItem-FullstackReason.cmj TodoListItem-FullstackReason.cmi TodoListItem-FullstackReason.cmt TodoListItem.bs.js)
+ (mode (promote (until-clean) (only TodoListItem.bs.js)))(deps (:inputs  TodoListItem.ast)  (:ast_deps .././frontend/TodoListItem.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./frontend %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I . -I ../types -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./frontend:.bs.js -o TodoListItem-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  AddTodoButton.ast)
+ (deps (:inputs  AddTodoButton.re) )
+(action
+ (run bsc  -w a -ppx /Users/mando/Github/reason-todo/node_modules/decco/ppx -ppx /Users/mando/Github/reason-todo/node_modules/@davesnx/styled-ppx/styled-ppx -bs-jsx 3  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  AddTodoButton-FullstackReason.cmj AddTodoButton-FullstackReason.cmi AddTodoButton-FullstackReason.cmt AddTodoButton.bs.js)
+ (mode (promote (until-clean) (only AddTodoButton.bs.js)))(deps (:inputs  AddTodoButton.ast)  (:ast_deps .././frontend/AddTodoButton.ast ) ../bsconfig.json ../.melange.eobjs/FullstackReason.cmi(alias ../node_modules/@minima.app/re-css/src/bsb_world)(alias ../node_modules/bs-fetch/src/bsb_world)(alias ../node_modules/decco/src/bsb_world)(alias ../node_modules/reason-react/src/bsb_world)(alias ../node_modules/reason-react/src/legacy/bsb_world)(alias ../node_modules/restorative/src/bsb_world))
+(action
+ (progn (dynamic-run bsb_helper -bs-ns FullstackReason -root /Users/mando/Github/reason-todo -cwd ./frontend %{ast_deps}) (run bsc -bs-ns FullstackReason -bs-re-out -I . -I ../types -I ../bs-emotion -I ../.melange.eobjs -I ../node_modules/@minima.app/re-css/src -I ../node_modules/bs-fetch/src -I ../node_modules/decco/src -I ../node_modules/reason-react/src -I ../node_modules/reason-react/src/legacy -I ../node_modules/restorative/src   -w a -bs-package-name fullstack-reason -bs-package-output commonjs:./frontend:.bs.js -o AddTodoButton-FullstackReason.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  AddTodoButton.bs.js TodoListItem.bs.js TodoList.bs.js Effects.bs.js index.bs.js Api.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+(subdir ./.melange.eobjs(rule
+(targets  FullstackReason.cmi)
+ (deps (:inputs  FullstackReason.mlmap) )
+(action (run bsc -w -49 -color always -no-alias-deps %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ )
+(subdir .melange.eobjs)
+
+(data_only_dirs node_modules .melange.eobjs)
+(alias (name bsb_world))
+;;;;BSB GENERATED: NO EDIT}

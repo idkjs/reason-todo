@@ -7,3 +7,6 @@ lib/
 **/*.bs.js
 **/.merlin
 
+.melange.eobjs
+.parcel-cache
+_build

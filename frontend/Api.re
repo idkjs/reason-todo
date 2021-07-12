@@ -16,7 +16,7 @@ type actions =
 
 let _add = (newItem: TodoItem.t, state: state) => {
   {
-    ...state,
+    
     items: [
       newItem,
       ...state.items
@@ -26,7 +26,7 @@ let _add = (newItem: TodoItem.t, state: state) => {
 
 
 let _toggle = (id: int, state: state) => {
-  {...state,
+  {
    items: List.map(
     (item: Types.TodoItem.t) => {
        item.id == id ? {...item, complete: !item.complete} : item
@@ -43,7 +43,7 @@ let _set = (items: option(TodoItemCollection.t), _state: state) => {
 };
 
 let _delete = (id: int, state: state) => {
-  {...state,
+  {
    items: state.items |> List.filter((item: TodoItem.t) => item.id != id)
   }
 };
