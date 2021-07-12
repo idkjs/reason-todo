@@ -11,6 +11,10 @@
     {
       "dir": "types",
       "subdirs": true
+    },
+    {
+      "dir": "bs-emotion",
+      "subdirs": false
     }
   ],
   "package-specs": [
@@ -22,7 +26,7 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "@ahrefs/bs-emotion",
+    "@minima.app/re-css",
     "bs-fetch",
     "decco",
     "reason-react",

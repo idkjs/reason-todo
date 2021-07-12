@@ -1,3 +1,18 @@
+## Reproduction
+
+```sh
+  /Users/mando/Github/reason-todo/types/Types__TodoItemCollection.re:1:12-17
+
+  1 │ [@deriving yojson]
+  2 │ [@decco]
+  3 │ type t = {
+
+  yojson is not supported
+
+bsb: [5/16] bs-emotion/Emotion-FullstackReason.cmj
+```
+
+____________________
 # Professional Development: ReasonML for fullstack web development
 # Goals
 
