@@ -2,13 +2,15 @@
   "name": "frontend",
   "version": "0.1.0",
   "scripts": {
-    "build": "esy bsb -make-world",
-    "start": "bsb -make-world -w",
-    "clean": "bsb -clean-world",
-    "parcel": "parcel frontend/index.html"
+    "installm":"esy @esym install",
+    "ocaml":"esy @esym which ocaml",
+    "build": "esy @esym bsb -make-world",
+    "start": "esy @esym bsb -make-world -w",
+    "clean": "esy @esym bsb -clean-world",
+    "parcel": "parcel serve frontend/index.html"
   },
   "keywords": [
-    "BuckleScript"
+    "Melange","ReasonML",""
   ],
   "author": "",
   "license": "MIT",
@@ -19,24 +21,11 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "reason-react": ">=0.7.0",
-    "@minima.app/re-css": "idkjs/re-css",
     "emotion": "9.2.12",
     "restorative": "^0.4.0-beta.1"
   },
   "devDependencies": {
-    "ocaml": "4.12.x",
-    "melange": "melange-re/melange",
     "esy": "*",
-    "bsb-js": "^1.1.7",
-    "parcel-bundler": "^1.12.4"
-  },
-  "esy": {
-    "buildsInSource": "unsafe",
-    "build": [
-      "ln -sfn #{melange.install} node_modules/bs-platform"
-    ]
-  },
-  "installConfig": {
-    "pnp": false
+    "parcel": "^2.0.0-beta.2"
   }
 }

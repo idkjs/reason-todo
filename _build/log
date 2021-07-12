@@ -1,0 +1,6 @@
+# dune build @bsb_world
+# OCAMLPARAM: unset
+# Workspace root: /Users/mando/Github/reason-todo
+$ /usr/local/bin/nproc > /var/folders/jk/x59dhv6s7151k4mfmshf6v480000gn/T/duneae779d.output 2> /dev/null
+# Auto-detected concurrency: 8
+# disable binary cache
